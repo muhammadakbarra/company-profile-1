@@ -1,0 +1,356 @@
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* White text */
+    background-color: #121212; /* Dark background */
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark gradient */
+    z-index: -1;
+}
+
+/* Navbar */
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px; /* Padding atas-bawah 20px, kiri-kanan 40px */
+    background: rgba(18, 18, 18, 0.8); /* Semi-transparent dark */
+    box-sizing: border-box; /* Pastikan padding tidak mempengaruhi lebar total */
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff88; /* Neon green */
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: #00ff88; /* Neon green on hover */
+}
+
+.hamburger {
+    display: none; /* Sembunyikan hamburger di desktop */
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #00ff88; /* Neon green */
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background: #8a2be2; /* Purple highlight */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #6a1b9a; /* Darker purple on hover */
+}
+
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1e1e1e; /* Slightly darker background */
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #00ff88; /* Neon green */
+}
+
+/* Grid Layout */
+.about-content,
+.services-grid,
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-card,
+.service-card,
+.portfolio-item {
+    background: #121212; /* Dark background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    color: #ffffff;
+    border: 1px solid #333; /* Dark border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover,
+.service-card:hover,
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 255, 136, 0.2); /* Neon green shadow on hover */
+}
+
+.about-card h3,
+.service-card h3,
+.portfolio-item h3 {
+    color: #00ff88; /* Neon green */
+}
+
+/* Portfolio Section */
+.portfolio-item {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.9); /* Dark overlay */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.portfolio-overlay h3 {
+    color: #00ff88; /* Neon green */
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.portfolio-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.detail-button,
+.visit-button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.detail-button {
+    background: #8a2be2; /* Purple */
+    color: #ffffff;
+}
+
+.detail-button:hover {
+    background: #6a1b9a; /* Darker purple */
+}
+
+.visit-button {
+    background: #00ff88; /* Neon green */
+    color: #121212;
+}
+
+.visit-button:hover {
+    background: #00cc66; /* Darker green */
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #333; /* Dark border */
+    border-radius: 5px;
+    background: #1e1e1e; /* Slightly lighter dark */
+    color: #ffffff;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #00ff88; /* Neon green on focus */
+}
+
+form button {
+    padding: 10px;
+    background: #8a2be2; /* Purple highlight */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+form button:hover {
+    background: #6a1b9a; /* Darker purple on hover */
+}
+
+/* Footer */
+footer {
+    background: #121212; /* Dark background */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #333; /* Dark border */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navbar Mobile */
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav .logo {
+        font-size: 20px;
+    }
+
+    nav .nav-links {
+        display: none; /* Sembunyikan nav-links di mobile */
+    }
+
+    .hamburger {
+        display: block; /* Tampilkan hamburger di mobile */
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(18, 18, 18, 0.9);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    /* Hero Section Mobile */
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Grid Layout Mobile */
+    .about-content,
+    .services-grid,
+    .portfolio-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-card,
+    .service-card,
+    .portfolio-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Contact Form Mobile */
+    form {
+        padding: 0 20px;
+    }
+}
