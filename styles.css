@@ -41,10 +41,11 @@ nav {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px 40px; /* Padding atas-bawah 20px, kiri-kanan 40px */
     background: rgba(18, 18, 18, 0.8); /* Semi-transparent dark */
     box-sizing: border-box; /* Pastikan padding tidak mempengaruhi lebar total */
+    font-size: 20px;
 }
 
 nav .logo {
@@ -353,4 +354,69 @@ footer {
     form {
         padding: 0 20px;
     }
+}
+
+/* About Section */
+#about {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1e1e1e; /* Dark background */
+}
+
+#about h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #00ff88; /* Neon green */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Responsif di mobile */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%; /* Foto bulat */
+    object-fit: cover;
+    border: 4px solid #00ff88; /* Neon green border */
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3); /* Neon green shadow */
+}
+
+.about-description {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-description {
+        text-align: center;
+    }
+}
+
+/* highlight */
+.highlight {
+    background-color: #00ff88; /* Neon green */
+    color: #121212; /* Dark text */
+    padding: 2px 6px; /* Padding untuk membuat highlight lebih rapi */
+    border-radius: 4px; /* Border radius untuk sudut yang melengkung */
 }

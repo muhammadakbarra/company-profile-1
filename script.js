@@ -12,7 +12,7 @@ document.getElementById('canvas-container').appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshBasicMaterial({
-    color: 0x00ff00,
+    color: 0x00ff88,
     wireframe: true,
 });
 const cube = new THREE.Mesh(geometry, material);
@@ -33,40 +33,27 @@ gsap.from('.hero h1', { opacity: 0, y: -50, duration: 1, delay: 0.5 });
 gsap.from('.hero p', { opacity: 0, y: 50, duration: 1, delay: 1 });
 gsap.from('.cta-button', { opacity: 0, scale: 0.5, duration: 1, delay: 1.5 });
 
-// delay navbar
+// Smooth scrolling
 document.querySelectorAll('.nav-links a').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // Mencegah perilaku default
-        const targetId = this.getAttribute('href'); // Ambil ID target (misal: #home)
-        const targetSection = document.querySelector(targetId); // Ambil elemen target
-
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
         if (targetSection) {
-            setTimeout(() => {
-                targetSection.scrollIntoView({ behavior: 'smooth' }); // Scroll dengan efek smooth
-            }, 300); // Delay 300ms sebelum scroll
+            targetSection.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-// function for contact
+// Form submission
 function sendMessage(event) {
-    event.preventDefault(); // Mencegah form submit default
-
-    // Ambil nilai dari input
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-
-    // Format pesan untuk WhatsApp
-    const whatsappMessage = `Halo, saya ${name} (${email}). Pesan saya: ${message}`;
-
-    // Nomor admin WhatsApp (ganti dengan nomor Anda)
+    const whatsappMessage = `Hello, I'm ${name} (${email}). Message: ${message}`;
     const adminNumber = '6281248175090';
-
-    // Encode pesan untuk URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
-
-    // Redirect ke WhatsApp dengan pesan otomatis
     window.open(
         `https://wa.me/${adminNumber}?text=${encodedMessage}`,
         '_blank'
