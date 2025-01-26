@@ -162,7 +162,6 @@ h2 {
 .portfolio-item h3 {
     color: #00ff88; /* Neon green */
 }
-
 /* Portfolio Section */
 .portfolio-item {
     position: relative;
@@ -247,6 +246,23 @@ h2 {
 
 .portfolio-item:hover img {
     transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-overlay {
+        opacity: 1; /* Overlay selalu terlihat di mobile */
+        background: rgba(
+            18,
+            18,
+            18,
+            0.8
+        ); /* Lebih transparan agar gambar tetap terlihat */
+    }
+
+    .portfolio-item:hover img {
+        transform: scale(1); /* Menonaktifkan zoom di mobile */
+    }
 }
 
 /* Contact Form */
